@@ -22,7 +22,7 @@ export default function Countdown() {
             interval = setInterval(() => {
                 setSeconds((seconds) => seconds -1)
             }, 1000)
-        } else if(!active && seconds !== 0) {
+        } else if(!active) {
             clearInterval(interval)
         }
         if(active && seconds === 0){
