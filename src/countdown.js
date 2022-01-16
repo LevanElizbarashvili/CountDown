@@ -1,4 +1,6 @@
 import {useEffect, useState} from "react";
+import {Button, Container} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export default function Countdown() {
@@ -23,8 +25,12 @@ export default function Countdown() {
         } else if(!active && seconds !== 0) {
             clearInterval(interval)
         }
+        if(active && seconds === 0){
+            setActive(!active)
+        }
         return () => clearInterval(interval);
     }, [active, seconds])
+
 
     function convertSeconds(s){
         let minutes = Math.floor(s/60);
@@ -35,11 +41,12 @@ export default function Countdown() {
     }
 
     return (
-        <>
-        <div>{convertSeconds(seconds)}</div>
-        <button onClick={toggle}>Start/Pause</button>
-        <button onClick={reset}>Reset</button>
-        </>
+        <Container className="d-flex align-items-center justify-content-center vh-100" style={{fontSize:40}}>
+            <div className="m-2">Timer</div>
+        <div className="">{convertSeconds(seconds)}</div>
+        <Button variant="primary" className="m-2" onClick={toggle}>Start/Pause</Button>
+        <Button variant="secondary" className="" onClick={reset}>Reset</Button>
+        </Container>
     )
 
 }
