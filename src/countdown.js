@@ -41,8 +41,7 @@ export default function Countdown() {
     }
 
     return (
-        <Container className="d-flex align-items-center justify-content-center vh-100" style={{fontSize:40}}>
-            <div className="m-2">Timer</div>
+        <Container className="d-flex align-items-center justify-content-center vh-100" style={{fontSize:80}}>
         <div className="">{convertSeconds(seconds)}</div>
         <Button variant="primary" className="m-2" onClick={toggle}>Start/Pause</Button>
         <Button variant="secondary" className="" onClick={reset}>Reset</Button>
